@@ -38,6 +38,7 @@
   --color-primary-blue: var(--primary-blue);
   --color-secondary-cyan: var(--secondary-cyan);
   --color-accent-purple: var(--accent-purple);
+  --color-accent-amber: var(--accent-amber);
   
   --font-sans: var(--font-geist-sans), Arial, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;

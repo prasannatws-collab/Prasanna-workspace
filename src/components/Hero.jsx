@@ -92,7 +92,7 @@ export default function Hero() {
             Prasanna
           </span>
           <span className="block text-gray-500 font-mono text-xs sm:text-sm tracking-widest mt-2 uppercase">
-            M Lakshmi Prasanna Kumar Reddy
+            M L Prasanna Kumar Reddy
           </span>
         </motion.h1>
 

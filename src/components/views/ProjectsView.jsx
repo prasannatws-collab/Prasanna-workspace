@@ -6,7 +6,7 @@ const PROJECTS_DATA = {
   "ltm_premera_bluecross.cs": {
     title: "LTM Premera BlueCross",
     category: "Financials / Healthcare",
-    icon: <ShieldCheck className="text-emerald-400" size={20} />,
+    icon: <ShieldCheck className="text-emerald-500" size={20} />,
     description: "Developing account management and financial transaction workflows for a major US healthcare platform. Focusing on secure payment validation, invoices, receipts, and subsidy processing using Azure services and microservices.",
     tech: ["C#", "Azure Functions", "APIM", "Cosmos DB", "xUnit", "YAML Pipelines"],
     github: "#",
@@ -42,7 +42,7 @@ namespace Prasanna.LTM.PaymentService
   "accenture_conedison.cs": {
     title: "Accenture - ConEdison",
     category: "Utilities / Enterprise Scale",
-    icon: <Server className="text-sky-400" size={20} />,
+    icon: <Server className="text-[#0A7C6E]" size={20} />,
     description: "Developing enterprise-scale customer account management solutions for one of the largest utility providers in the US. Working on cloud-native microservices architecture using Azure Functions, APIM, Cosmos DB, and .NET Core to build secure, scalable, and high-performance applications.",
     tech: [".NET Core", "Microservices", "Cosmos DB", "APIM", "Bicep Templates", "Azure DevOps"],
     github: "#",
@@ -70,7 +70,7 @@ namespace Prasanna.Accenture.UtilityPortal
   "cognizant_pearson.cs": {
     title: "Cognizant - Pearson",
     category: "Education / EdTech",
-    icon: <Zap className="text-amber-400" size={20} />,
+    icon: <Zap className="text-amber-500" size={20} />,
     description: "Contributed to Pearson's digital learning and content management platform. Developed robust web APIs and background services, event schedulers, and supported Agile product delivery.",
     tech: ["C#", "ASP.NET Web APIs", "Azure Service Bus", "SQL Server", "Docker", "Git"],
     github: "#",
@@ -109,11 +109,11 @@ export default function ProjectsView({ fileId }) {
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full min-h-0 overflow-y-auto p-4 sm:p-6 lg:p-8">
       {/* Code Editor Window Pane */}
       <div className="lg:col-span-7 glass-panel border-white/5 bg-slate-950/45 p-4 sm:p-5 flex flex-col font-mono text-xs h-fit select-text relative">
-        <div className="absolute top-2 right-4 text-[9px] text-cyan-400/40 select-none">
+        <div className="absolute top-2 right-4 text-[9px] text-[#0A7C6E]/60 select-none">
           {fileId}
         </div>
         <div className="flex border-b border-white/5 pb-2.5 mb-3 text-[10px] text-gray-500 select-none">
-          <span className="text-cyan-500/80 mr-2">&gt;_</span> EDITOR | C# LANGUAGE MODE
+          <span className="text-[#0A7C6E]/80 mr-2">&gt;_</span> EDITOR | C# LANGUAGE MODE
         </div>
 
         <div className="flex leading-relaxed overflow-x-auto">
@@ -133,17 +133,17 @@ export default function ProjectsView({ fileId }) {
 
       {/* Visual Metadata Panel */}
       <div className="lg:col-span-5 flex flex-col gap-6">
-        <div className="glass-panel p-6 border border-white/5 bg-slate-950/20 flex flex-col h-full justify-between relative">
-          <div className="absolute top-2 right-4 text-[8px] font-mono text-cyan-400/50">
+        <div className="glass-panel p-6 border border-white/5 bg-[#0d1e1f]/10 flex flex-col h-full justify-between relative">
+          <div className="absolute top-2 right-4 text-[8px] font-mono text-[#0A7C6E]/50">
             METADATA_HUD
           </div>
           
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest bg-cyan-400/5 px-2.5 py-1 rounded border border-cyan-400/10">
+              <span className="text-[10px] font-mono text-[#0A7C6E] uppercase tracking-widest bg-[#0A7C6E]/5 px-2.5 py-1 rounded border border-[#0A7C6E]/10">
                 {proj.category}
               </span>
-              <div className="p-2 rounded-full bg-white/5 border border-white/5 text-cyan-400">
+              <div className="p-2 rounded-full bg-white/5 border border-white/5 text-[#0A7C6E]">
                 {proj.icon}
               </div>
             </div>
@@ -185,7 +185,7 @@ export default function ProjectsView({ fileId }) {
                 </a>
                 <a
                   href="#"
-                  className="p-2 rounded bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 hover:text-sky-300 transition-colors duration-200 border border-sky-500/10 text-xs font-mono flex items-center gap-1"
+                  className="p-2 rounded bg-[#FF6B35]/10 hover:bg-[#FF6B35]/20 text-[#FF6B35] hover:text-[#FF6B35]/90 transition-colors duration-200 border border-[#FF6B35]/20 text-xs font-mono flex items-center gap-1"
                   onClick={(e) => { e.preventDefault(); alert("Enterprise architectural sandbox - login required."); }}
                 >
                   Case Study <ExternalLink size={10} />

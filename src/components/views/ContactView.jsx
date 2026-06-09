@@ -62,11 +62,11 @@ app = FastAPI()
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full min-h-0 overflow-y-auto p-4 sm:p-6 lg:p-8">
       {/* Code Editor Column */}
       <div className="lg:col-span-5 glass-panel border-white/5 bg-slate-950/45 p-4 sm:p-5 flex flex-col font-mono text-xs h-fit select-text relative">
-        <div className="absolute top-2 right-4 text-[9px] text-cyan-400/40 select-none">
+        <div className="absolute top-2 right-4 text-[9px] text-primary-blue/50 select-none">
           contact_endpoint.py
         </div>
         <div className="flex border-b border-white/5 pb-2.5 mb-3 text-[10px] text-gray-500 select-none">
-          <span className="text-cyan-500/80 mr-2">&gt;_</span> EDITOR | PYTHON LANGUAGE MODE
+          <span className="text-primary-blue/80 mr-2">&gt;_</span> EDITOR | PYTHON LANGUAGE MODE
         </div>
 
         <div className="flex leading-relaxed overflow-x-auto">
@@ -88,8 +88,8 @@ app = FastAPI()
       <div className="lg:col-span-7 flex flex-col gap-6">
         <div className="glass-panel p-5 sm:p-6 border border-white/5 bg-slate-950/15 relative">
           {/* Active indicator */}
-          <div className="absolute top-2 right-4 text-[8px] font-mono text-cyan-400/50 flex items-center gap-1">
-            <span className="w-1 h-1 rounded-full bg-cyan-400 animate-ping"></span>
+          <div className="absolute top-2 right-4 text-[8px] font-mono text-primary-blue/60 flex items-center gap-1">
+            <span className="w-1 h-1 rounded-full bg-primary-blue animate-ping"></span>
             <span>SECURE_CONNECTION_STABLE</span>
           </div>
 
@@ -105,7 +105,7 @@ app = FastAPI()
                 required
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 rounded-lg bg-slate-950/65 border border-white/10 text-gray-200 focus:outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(6,182,212,0.2)] transition-all duration-300 font-mono text-xs sm:text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-slate-950/65 border border-white/10 text-gray-200 focus:outline-none focus:border-primary-blue focus:shadow-[0_0_10px_rgba(10,124,110,0.2)] transition-all duration-300 font-mono text-xs sm:text-sm"
                 placeholder="Enter name"
               />
             </div>
@@ -119,7 +119,7 @@ app = FastAPI()
                 required
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 rounded-lg bg-slate-950/65 border border-white/10 text-gray-200 focus:outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(6,182,212,0.2)] transition-all duration-300 font-mono text-xs sm:text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-slate-950/65 border border-white/10 text-gray-200 focus:outline-none focus:border-primary-blue focus:shadow-[0_0_10px_rgba(10,124,110,0.2)] transition-all duration-300 font-mono text-xs sm:text-sm"
                 placeholder="Enter email"
               />
             </div>
@@ -133,7 +133,7 @@ app = FastAPI()
                 rows={4}
                 value={formData.message}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 rounded-lg bg-slate-950/65 border border-white/10 text-gray-200 focus:outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(6,182,212,0.2)] transition-all duration-300 resize-none font-mono text-xs sm:text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-slate-950/65 border border-white/10 text-gray-200 focus:outline-none focus:border-primary-blue focus:shadow-[0_0_10px_rgba(10,124,110,0.2)] transition-all duration-300 resize-none font-mono text-xs sm:text-sm"
                 placeholder="Write message..."
               />
             </div>
@@ -141,12 +141,12 @@ app = FastAPI()
             <button
               type="submit"
               disabled={isSubmitting || isSent}
-              className="w-full py-3 px-5 rounded-lg font-semibold bg-gradient-to-r from-blue-600 to-cyan-500 text-white flex items-center justify-center space-x-2 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300 hover:scale-[1.01] uppercase tracking-wider text-xs font-mono"
+              className="w-full py-3 px-5 rounded-lg font-semibold bg-gradient-to-r from-primary-blue to-secondary-cyan text-white flex items-center justify-center space-x-2 hover:shadow-[0_0_20px_rgba(10,124,110,0.3)] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300 hover:scale-[1.01] uppercase tracking-wider text-xs font-mono"
             >
               {isSubmitting ? (
                 <span>Executing transmit_message()...</span>
               ) : isSent ? (
-                <span className="text-teal-300">Packet Dispatched!</span>
+                <span className="text-primary-blue">Packet Dispatched!</span>
               ) : (
                 <>
                   <span>Execute API Call</span>
@@ -161,9 +161,9 @@ app = FastAPI()
         <div className="grid grid-cols-3 gap-4">
           <a
             href="mailto:prasanna.tws@gmail.com"
-            className="glass-panel p-3 border border-white/5 bg-slate-950/20 hover:border-cyan-500/20 hover:bg-slate-950/30 transition-all flex flex-col items-center text-center gap-1.5"
+            className="glass-panel p-3 border border-white/5 bg-slate-950/20 hover:border-primary-blue/20 hover:bg-slate-950/30 transition-all flex flex-col items-center text-center gap-1.5"
           >
-            <Mail size={16} className="text-cyan-400" />
+            <Mail size={16} className="text-primary-blue" />
             <span className="text-[9px] font-mono text-gray-500 uppercase tracking-widest">Email</span>
             <span className="text-[10px] text-gray-300 font-bold truncate w-full">prasanna.tws@gmail.com</span>
           </a>
@@ -172,9 +172,9 @@ app = FastAPI()
             href="https://linkedin.com/in/mlprasanna"
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-panel p-3 border border-white/5 bg-slate-950/20 hover:border-blue-500/20 hover:bg-slate-950/30 transition-all flex flex-col items-center text-center gap-1.5"
+            className="glass-panel p-3 border border-white/5 bg-slate-950/20 hover:border-secondary-cyan/20 hover:bg-slate-950/30 transition-all flex flex-col items-center text-center gap-1.5"
           >
-            <svg className="w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
+            <svg className="w-4 h-4 text-secondary-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
             <span className="text-[9px] font-mono text-gray-500 uppercase tracking-widest">LinkedIn</span>
             <span className="text-[10px] text-gray-300 font-bold truncate w-full">mlprasanna</span>
           </a>
@@ -183,9 +183,9 @@ app = FastAPI()
             href="https://github.com/prasannatws-collab"
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-panel p-3 border border-white/5 bg-slate-950/20 hover:border-purple-500/20 hover:bg-slate-950/30 transition-all flex flex-col items-center text-center gap-1.5"
+            className="glass-panel p-3 border border-white/5 bg-slate-950/20 hover:border-accent-purple/20 hover:bg-slate-950/30 transition-all flex flex-col items-center text-center gap-1.5"
           >
-            <svg className="w-4 h-4 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
+            <svg className="w-4 h-4 text-accent-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
             <span className="text-[9px] font-mono text-gray-500 uppercase tracking-widest">GitHub</span>
             <span className="text-[10px] text-gray-300 font-bold truncate w-full">prasannatws-collab</span>
           </a>

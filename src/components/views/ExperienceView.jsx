@@ -28,7 +28,7 @@ const EXPERIENCES = [
     ]
   },
   {
-    company: "Cognizant (Client: Pearson Connexus)",
+    company: "Cognizant - Pearson",
     role: "Azure Developer / Software Engineer",
     duration: "Nov 2017 – June 2021",
     location: "Chennai, India",
@@ -64,11 +64,11 @@ export default function ExperienceView() {
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full min-h-0 overflow-y-auto p-4 sm:p-6 lg:p-8">
       {/* Code Editor Column */}
       <div className="lg:col-span-5 glass-panel border-white/5 bg-slate-950/45 p-4 sm:p-5 flex flex-col font-mono text-xs h-fit select-text relative">
-        <div className="absolute top-2 right-4 text-[9px] text-cyan-400/40 select-none">
+        <div className="absolute top-2 right-4 text-[9px] text-emerald-400/40 select-none">
           experience.yaml
         </div>
         <div className="flex border-b border-white/5 pb-2.5 mb-3 text-[10px] text-gray-500 select-none">
-          <span className="text-cyan-500/80 mr-2">&gt;_</span> EDITOR | YAML LANGUAGE MODE
+          <span className="text-emerald-500/80 mr-2">&gt;_</span> EDITOR | YAML LANGUAGE MODE
         </div>
 
         <div className="flex leading-relaxed overflow-x-auto">
@@ -88,31 +88,31 @@ export default function ExperienceView() {
 
       {/* Visual Timeline Column */}
       <div className="lg:col-span-7 flex flex-col gap-6">
-        <div className="relative border-l border-cyan-500/20 ml-3 space-y-6 pt-2">
+        <div className="relative border-l border-[#0A7C6E]/20 ml-3 space-y-6 pt-2">
           {EXPERIENCES.map((exp, idx) => (
             <div key={exp.company} className="relative pl-7">
               {/* Node Indicator */}
-              <div className="absolute -left-2 top-1.5 w-4 h-4 rounded-full bg-slate-950 border border-cyan-500 flex items-center justify-center shadow-[0_0_10px_rgba(6,182,212,0.4)] z-15">
-                <Briefcase size={8} className="text-cyan-400" />
+              <div className="absolute -left-2 top-1.5 w-4 h-4 rounded-full bg-slate-950 border border-[#0A7C6E] flex items-center justify-center shadow-[0_0_10px_rgba(10,124,110,0.4)] z-15">
+                <Briefcase size={8} className="text-[#0A7C6E]" />
               </div>
 
               {/* Box Panel */}
-              <div className="glass-panel p-4 sm:p-5 border border-white/5 bg-slate-950/15 hover:border-cyan-500/20 hover:shadow-[0_0_15px_rgba(6,182,212,0.05)] transition-all duration-300">
+              <div className="glass-panel p-4 sm:p-5 border border-white/5 bg-slate-950/15 hover:border-[#0A7C6E]/20 hover:shadow-[0_0_15px_rgba(10,124,110,0.05)] transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-white/5 pb-3 mb-3">
                   <div>
                     <h3 className="text-sm sm:text-base font-bold text-gray-100 font-mono leading-tight">{exp.role}</h3>
-                    <h4 className="text-xs font-mono text-cyan-400 mt-1">{exp.company}</h4>
+                    <h4 className="text-xs font-mono text-[#0A7C6E] mt-1">{exp.company}</h4>
                   </div>
                   <div className="flex flex-col sm:items-end text-[9px] font-mono text-gray-500 gap-1 mt-1 sm:mt-0">
                     <div className="flex items-center gap-1.5">
-                      <Calendar size={10} className="text-cyan-400" />
+                      <Calendar size={10} className="text-[#0A7C6E]" />
                       <span>{exp.duration}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <MapPin size={10} className="text-cyan-400" />
+                      <MapPin size={10} className="text-[#0A7C6E]" />
                       <span>{exp.location}</span>
                     </div>
-                    <div className="mt-1 self-start sm:self-auto px-1.5 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 uppercase tracking-widest text-[8px]">
+                    <div className="mt-1 self-start sm:self-auto px-1.5 py-0.5 rounded bg-[#FF6B35]/10 border border-[#FF6B35]/20 text-[#FF6B35] uppercase tracking-widest text-[8px]">
                       {exp.domain}
                     </div>
                   </div>
@@ -125,7 +125,7 @@ export default function ExperienceView() {
                 <div className="space-y-1.5">
                   {exp.achievements.map((ach, aIdx) => (
                     <div key={aIdx} className="flex items-start text-xs text-gray-300">
-                      <CheckCircle size={12} className="text-cyan-500/80 mr-2 mt-0.5 flex-shrink-0" />
+                      <CheckCircle size={12} className="text-[#0A7C6E] mr-2 mt-0.5 flex-shrink-0" />
                       <span className="font-light leading-relaxed">{ach}</span>
                     </div>
                   ))}

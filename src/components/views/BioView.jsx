@@ -6,14 +6,14 @@ import { Briefcase, Server, Award, Database } from "lucide-react";
 
 export default function BioView() {
   const stats = [
-    { label: "Years Experience", value: "8+", icon: <Briefcase size={16} className="text-blue-400" /> },
-    { label: "Cloud Platforms", value: "Azure", icon: <Server size={16} className="text-cyan-400" /> },
-    { label: "Enterprise Domains", value: "3", icon: <Award size={16} className="text-purple-400" /> },
-    { label: "Database Engine", value: "SQL/Cosmos", icon: <Database size={16} className="text-teal-400" /> }
+    { label: "Years Experience", value: "8+", icon: <Briefcase size={16} className="text-emerald-500" /> },
+    { label: "Cloud Platforms", value: "Azure", icon: <Server size={16} className="text-[#0A7C6E]" /> },
+    { label: "Enterprise Domains", value: "3", icon: <Award size={16} className="text-[#FF6B35]" /> },
+    { label: "Database Engine", value: "SQL/Cosmos", icon: <Database size={16} className="text-[#F59E0B]" /> }
   ];
 
   const jsonCode = `{
-  <span class="code-property">"name"</span>: <span class="code-string">"M Lakshmi Prasanna Kumar Reddy"</span>,
+  <span class="code-property">"name"</span>: <span class="code-string">"M L Prasanna Kumar Reddy"</span>,
   <span class="code-property">"alias"</span>: <span class="code-string">"Prasanna.tws"</span>,
   <span class="code-property">"role"</span>: <span class="code-string">"Specialist - Software Engineering"</span>,
   <span class="code-property">"experience_years"</span>: <span class="code-number">8</span>,
@@ -76,11 +76,11 @@ export default function BioView() {
           </div>
           
           <div className="text-center sm:text-left flex-1 space-y-2">
-            <span className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest bg-cyan-400/5 px-2.5 py-1 rounded border border-cyan-400/10">
+            <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-400/5 px-2.5 py-1 rounded border border-emerald-400/10">
               Agent Profile Loaded
             </span>
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-100 font-mono tracking-tight pt-1">
-              M Lakshmi Prasanna Kumar Reddy
+            <h1 className="text-xs sm:text-xs md:text-sm lg:text-[10px] xl:text-xs font-bold font-mono text-gray-100 tracking-tight pt-1 whitespace-nowrap">
+              M L Prasanna Kumar Reddy
             </h1>
             <p className="text-xs font-mono text-gray-400 uppercase tracking-wider">
               Specialist - Software Engineering
@@ -90,10 +90,10 @@ export default function BioView() {
 
         {/* Story biography text block */}
         <div className="glass-panel border-white/5 p-6 bg-slate-950/30 relative">
-          <div className="absolute top-2 right-4 text-[9px] font-mono text-purple-400/50 uppercase tracking-widest">
+          <div className="absolute top-2 right-4 text-[9px] font-mono text-orange-400/50 uppercase tracking-widest">
             Identity Card
           </div>
-          <h3 className="text-sm font-semibold mb-3 text-cyan-300 font-mono">
+          <h3 className="text-sm font-semibold mb-3 text-emerald-400 font-mono">
             Senior Azure PaaS Developer & Backend Engineer
           </h3>
           <p className="text-gray-300 leading-relaxed text-xs sm:text-sm font-light mb-3">
