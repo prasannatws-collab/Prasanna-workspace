@@ -48,8 +48,8 @@ export default function About() {
             </TiltCard>
             
             <div className="mt-4 text-center px-2">
-              <span className="text-xs font-mono font-bold text-gray-300 group-hover:text-cyan-400 transition-colors duration-200 block leading-tight">
-                M L Prasanna Kumar Reddy
+              <span className="text-[10px] sm:text-xs font-mono font-bold text-gray-300 group-hover:text-cyan-400 transition-colors duration-200 block leading-tight whitespace-nowrap">
+                M Lakshmi Prasanna Kumar Reddy
               </span>
               <p className="text-[9px] font-mono text-gray-500 uppercase tracking-widest mt-1.5 leading-tight">
                 Specialist - Software Engineering

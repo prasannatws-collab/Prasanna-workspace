@@ -13,9 +13,9 @@ export default function BioView() {
   ];
 
   const jsonCode = `{
-  <span class="code-property">"name"</span>: <span class="code-string">"M L Prasanna Kumar Reddy"</span>,
+  <span class="code-property">"name"</span>: <span class="code-string">"M Lakshmi Prasanna Kumar Reddy"</span>,
   <span class="code-property">"alias"</span>: <span class="code-string">"Prasanna.tws"</span>,
-  <span class="code-property">"role"</span>: <span class="code-string">"Specialist - Software Engineering"</span>,
+  <span class="code-property">"role"</span>: <span class="code-string">"Specialist - Software Engineer, Cloud, AI"</span>,
   <span class="code-property">"experience_years"</span>: <span class="code-number">8</span>,
   <span class="code-property">"location"</span>: <span class="code-string">"Hyderabad, India / Hybrid"</span>,
   <span class="code-property">"cloud_focus"</span>: <span class="code-string">"Azure PaaS / Serverless"</span>,
@@ -77,13 +77,13 @@ export default function BioView() {
           
           <div className="text-center sm:text-left flex-1 space-y-2">
             <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-400/5 px-2.5 py-1 rounded border border-emerald-400/10">
-              Agent Profile Loaded
+              Professional Profile Active
             </span>
-            <h1 className="text-xs sm:text-xs md:text-sm lg:text-[10px] xl:text-xs font-bold font-mono text-gray-100 tracking-tight pt-1 whitespace-nowrap">
-              M L Prasanna Kumar Reddy
+            <h1 className="text-[10px] sm:text-xs md:text-sm lg:text-[10px] xl:text-xs font-bold font-mono text-gray-100 tracking-tight pt-1 whitespace-nowrap">
+              M Lakshmi Prasanna Kumar Reddy
             </h1>
             <p className="text-xs font-mono text-gray-400 uppercase tracking-wider">
-              Specialist - Software Engineering
+              Specialist - Software Engineer
             </p>
           </div>
         </div>
@@ -94,13 +94,13 @@ export default function BioView() {
             Identity Card
           </div>
           <h3 className="text-sm font-semibold mb-3 text-emerald-400 font-mono">
-            Senior Azure PaaS Developer & Backend Engineer
+            Specialist - Software Engineer, Cloud, AI
           </h3>
           <p className="text-gray-300 leading-relaxed text-xs sm:text-sm font-light mb-3">
-            I am a cloud software specialist with 8+ years of enterprise experience specializing in C#, .NET Core, and Azure PaaS. I build highly scalable, resilient cloud applications, secure REST APIs, and microservices architectures that power large-scale enterprise services.
+            I am a Specialist - Software Engineer with 8+ years of enterprise experience specializing in C#, .NET Core, and Azure PaaS. I build highly scalable, resilient cloud applications, secure REST APIs, and microservices architectures that power large-scale enterprise services.
           </p>
           <p className="text-gray-300 leading-relaxed text-xs sm:text-sm font-light">
-            I have modernized critical banking, healthcare, and utility platforms at Accenture, Cognizant, and LTM, designing payment queues, subsidy validators, and CI/CD automated test deployments.
+            I have worked for healthcare, utility and education platforms at LTM, Accenture and Cognizant for Critical REST WebAPI Services Integrated to Azure Cloud
           </p>
         </div>
 

@@ -224,7 +224,7 @@ export default function Workbench() {
           
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span className="font-bold text-gray-200 uppercase tracking-wider text-[10px] sm:text-xs">Workspace // Prasanna.tws</span>
+            <span className="font-bold text-gray-200 uppercase tracking-wider text-[10px] sm:text-xs">Prasanna.Tws</span>
           </div>
         </div>
 
@@ -349,7 +349,7 @@ export default function Workbench() {
           </div>
 
           {/* Bottom Terminal console */}
-          <div className="h-[180px] sm:h-[220px] bg-[#070b14] border-t border-emerald-500/10 flex flex-col font-mono text-[11px]">
+          <div className="h-[90px] sm:h-[110px] bg-[#070b14] border-t border-emerald-500/10 flex flex-col font-mono text-[11px]">
             {/* Terminal bar */}
             <div className="flex items-center justify-between px-3 py-1.5 border-b border-white/5 bg-[#0b1329]/50 select-none">
               <span className="text-[10px] text-gray-500 flex items-center gap-1.5">

@@ -91,8 +91,8 @@ export default function Hero() {
           <span className="font-[family-name:var(--font-script)] text-5xl sm:text-7xl md:text-8xl text-cyan-400 bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent filter drop-shadow-[0_0_30px_rgba(6,182,212,0.3)] block py-2 select-none">
             Prasanna
           </span>
-          <span className="block text-gray-500 font-mono text-xs sm:text-sm tracking-widest mt-2 uppercase">
-            M L Prasanna Kumar Reddy
+          <span className="block text-gray-500 font-mono text-[10px] sm:text-xs tracking-widest mt-2 uppercase whitespace-nowrap">
+            M Lakshmi Prasanna Kumar Reddy
           </span>
         </motion.h1>
 
