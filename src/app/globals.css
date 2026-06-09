@@ -1,14 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617;
-  --foreground: #f8fafc;
-  --card-bg: rgba(7, 12, 28, 0.45);
+  --background: #090d16;
+  --foreground: #e2e8f0;
+  --card-bg: rgba(9, 15, 28, 0.75);
   --card-border: rgba(6, 182, 212, 0.15);
   
   --primary-blue: #3b82f6;
   --secondary-cyan: #06b6d4;
   --accent-purple: #a855f7;
+  
+  /* IDE/Workbench Theme Colors */
+  --ide-bg: #090d16;
+  --ide-panel-bg: #0b1329;
+  --ide-border: rgba(6, 182, 212, 0.18);
+  --ide-text-muted: #64748b;
+  --ide-accent: #06b6d4;
+  --ide-active-tab: #0f172a;
+  
+  /* Syntax Highlighting */
+  --syn-keyword: #ff79c6;
+  --syn-string: #f1fa8c;
+  --syn-property: #50fa7b;
+  --syn-comment: #6272a4;
+  --syn-number: #bd93f9;
+  --syn-tag: #8be9fd;
+  --syn-function: #50fa7b;
+  --syn-class: #8be9fd;
 }
 
 @theme {
@@ -26,34 +44,34 @@
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: #090d16;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(6, 182, 212, 0.25);
-  border-radius: 4px;
+  background: rgba(6, 182, 212, 0.2);
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(168, 85, 247, 0.5);
+  background: rgba(168, 85, 247, 0.4);
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  overflow-x: hidden;
+  overflow: hidden; /* Fix layout to full screen workbench height */
   font-family: var(--font-sans);
 }
 
 /* Core Design System Utilities */
 .glass-panel {
-  background: rgba(7, 12, 28, 0.45);
+  background: rgba(11, 19, 41, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 1rem;
+  border: 1px solid var(--ide-border);
+  border-radius: 0.75rem;
 }
 
 /* 3D Transform Utilities */
@@ -69,25 +87,9 @@ body {
   backface-visibility: hidden;
 }
 
-.translate-z-10 {
-  transform: translateZ(10px);
-}
-
-.translate-z-20 {
-  transform: translateZ(20px);
-}
-
-.translate-z-40 {
-  transform: translateZ(40px);
-}
-
-.translate-z-60 {
-  transform: translateZ(60px);
-}
-
 /* Background Grids */
 .bg-grid-pattern {
-  background-size: 50px 50px;
+  background-size: 40px 40px;
   background-image: 
     linear-gradient(to right, rgba(6, 182, 212, 0.015) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(6, 182, 212, 0.015) 1px, transparent 1px);
@@ -103,11 +105,6 @@ body {
   filter: blur(40px);
 }
 
-.glow-orb-cyan {
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
-  filter: blur(40px);
-}
-
 /* Cyber HUD Scanline Overlay */
 .hud-scanline {
   background: linear-gradient(
@@ -120,10 +117,20 @@ body {
   background-size: 100% 4px;
 }
 
-/* Animations */
+/* Code Syntax Highlighter Typography Classes */
+.code-keyword { color: var(--syn-keyword); font-weight: bold; }
+.code-string { color: var(--syn-string); }
+.code-property { color: var(--syn-property); }
+.code-comment { color: var(--syn-comment); font-style: italic; }
+.code-number { color: var(--syn-number); }
+.code-tag { color: var(--syn-tag); }
+.code-func { color: var(--syn-function); }
+.code-class { color: var(--syn-class); }
+
+/* Custom Animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
 
 .animate-float {
@@ -141,4 +148,5 @@ body {
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
