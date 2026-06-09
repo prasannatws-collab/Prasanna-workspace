@@ -40,7 +40,7 @@ export default function ThreeDTagCloud() {
 
   useEffect(() => {
     const N = TAGS.length;
-    const radius = 130;
+    const radius = 75;
     const focalLength = 300;
 
     // Distribute tags evenly on a sphere using Fibonacci sphere algorithm
@@ -149,26 +149,26 @@ export default function ThreeDTagCloud() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full aspect-square max-w-[320px] mx-auto flex items-center justify-center select-none overflow-visible cursor-pointer"
+      className="relative w-full aspect-square max-w-[240px] mx-auto flex items-center justify-center select-none overflow-visible cursor-pointer"
     >
       {/* Decorative center orb */}
-      <div className="absolute w-24 h-24 rounded-full bg-cyan-500/10 border border-cyan-500/20 blur-sm pointer-events-none" />
+      <div className="absolute w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/20 blur-sm pointer-events-none" />
 
       {tags.map((tag, i) => (
         <span
           key={i}
-          className="absolute text-xs sm:text-sm font-mono px-2.5 py-1 rounded bg-slate-950/75 border border-white/5 text-gray-300 font-bold whitespace-nowrap shadow-md pointer-events-none transition-all"
+          className="absolute text-[10px] sm:text-xs font-mono px-2 py-0.5 rounded bg-slate-950/80 border border-white/5 text-gray-300 font-bold whitespace-nowrap shadow-md pointer-events-none transition-all"
           style={{
             transform: `translate3d(${tag.projX}px, ${tag.projY}px, 0px) scale(${tag.scale})`,
             opacity: tag.opacity,
             zIndex: Math.round(tag.scale * 100),
             color: tag.scale > 1.1 
-              ? "#22d3ee" // Cyan
+              ? "#10b981" // Soothing Mint
               : tag.scale > 0.9 
-              ? "#a78bfa" // Purple
-              : "#94a3b8", // Muted slate
+              ? "#c084fc" // Soothing Lavender
+              : "#64748b", // Muted slate
             borderColor: tag.scale > 1.1 
-              ? "rgba(6, 182, 212, 0.3)" 
+              ? "rgba(16, 185, 129, 0.3)" 
               : "rgba(255, 255, 255, 0.05)"
           }}
         >

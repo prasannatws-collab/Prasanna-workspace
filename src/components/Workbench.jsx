@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Folder, FolderOpen, FileJson, FileText, Code, FileCode, Play, Terminal, HelpCircle, User, List, Layers, Radio, Sparkles, ChevronRight, Menu, X } from "lucide-react";
+import { Folder, FolderOpen, FileJson, FileText, Code, FileCode, Play, Terminal, ChevronRight, Menu, X } from "lucide-react";
 
 import BioView from "./views/BioView";
 import SkillsView from "./views/SkillsView";
@@ -10,27 +10,26 @@ import ProjectsView from "./views/ProjectsView";
 import ContactView from "./views/ContactView";
 import AchievementsView from "./views/AchievementsView";
 
-// Structure of file tree
+// Structure of file tree (re-aligned to three specific projects)
 const FILE_TREE = [
   {
     name: "src",
     type: "folder",
     children: [
-      { id: "bio.json", name: "bio.json", type: "json", icon: <FileJson size={14} className="text-amber-400" /> },
-      { id: "skills.yaml", name: "skills.yaml", type: "yaml", icon: <FileText size={14} className="text-emerald-400" /> },
-      { id: "experience.yaml", name: "experience.yaml", type: "yaml", icon: <FileText size={14} className="text-sky-400" /> },
-      { id: "achievements.json", name: "achievements.json", type: "json", icon: <FileJson size={14} className="text-purple-400" /> },
-      { id: "contact_endpoint.py", name: "contact_endpoint.py", type: "python", icon: <FileCode size={14} className="text-blue-400" /> }
+      { id: "bio.json", name: "bio.json", type: "json", icon: <FileJson size={14} className="text-amber-400/80" /> },
+      { id: "skills.yaml", name: "skills.yaml", type: "yaml", icon: <FileText size={14} className="text-emerald-400/80" /> },
+      { id: "experience.yaml", name: "experience.yaml", type: "yaml", icon: <FileText size={14} className="text-sky-400/80" /> },
+      { id: "achievements.json", name: "achievements.json", type: "json", icon: <FileJson size={14} className="text-purple-400/80" /> },
+      { id: "contact_endpoint.py", name: "contact_endpoint.py", type: "python", icon: <FileCode size={14} className="text-blue-400/80" /> }
     ]
   },
   {
     name: "projects",
     type: "folder",
     children: [
-      { id: "healthcare_validator.cs", name: "healthcare_validator.cs", type: "cs", icon: <Code size={14} className="text-teal-400" /> },
-      { id: "utility_portal.cs", name: "utility_portal.cs", type: "cs", icon: <Code size={14} className="text-sky-400" /> },
-      { id: "event_scheduler.cs", name: "event_scheduler.cs", type: "cs", icon: <Code size={14} className="text-orange-400" /> },
-      { id: "microservices_skeleton.cs", name: "microservices_skeleton.cs", type: "cs", icon: <Code size={14} className="text-pink-400" /> }
+      { id: "ltm_premera_bluecross.cs", name: "ltm_premera_bluecross.cs", type: "cs", icon: <Code size={14} className="text-emerald-400/80" /> },
+      { id: "accenture_conedison.cs", name: "accenture_conedison.cs", type: "cs", icon: <Code size={14} className="text-sky-400/80" /> },
+      { id: "cognizant_pearson.cs", name: "cognizant_pearson.cs", type: "cs", icon: <Code size={14} className="text-amber-400/80" /> }
     ]
   }
 ];
@@ -43,26 +42,18 @@ export default function Workbench() {
 
   // Sidebar visibility states for responsiveness
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [agentPanelOpen, setAgentPanelOpen] = useState(true);
 
   // Terminal states
   const [terminalLines, setTerminalLines] = useState([
     "Microsoft Windows [Version 10.0.22631]",
     "(c) Microsoft Corporation. All rights reserved.",
     "",
-    "Prasanna's Agentic Workspace Initialized.",
+    "Prasanna's Workspace Initialized.",
     "Type 'help' to view available operations.",
     ""
   ]);
   const [terminalInput, setTerminalInput] = useState("");
   const terminalBottomRef = useRef(null);
-
-  // Agent statuses
-  const [agents, setAgents] = useState({
-    "verify-agent": { status: "IDLE", color: "bg-emerald-500", desc: "Monitors and validates code builds" },
-    "deploy-agent": { status: "IDLE", color: "bg-emerald-500", desc: "Deploys static templates to edge" },
-    "synthesizer-agent": { status: "IDLE", color: "bg-emerald-500", desc: "Injects database seeds & schemas" }
-  });
 
   // Automatically scroll terminal to bottom on new outputs
   useEffect(() => {
@@ -76,10 +67,8 @@ export default function Workbench() {
     const handleResize = () => {
       if (window.innerWidth < 1024) {
         setSidebarOpen(false);
-        setAgentPanelOpen(false);
       } else {
         setSidebarOpen(true);
-        setAgentPanelOpen(true);
       }
     };
     handleResize();
@@ -92,7 +81,6 @@ export default function Workbench() {
     const handleLogs = (e) => {
       if (e.detail && e.detail.line) {
         addTerminalLine(e.detail.line);
-        triggerAgentActivity("verify-agent", "TRANSMITTING");
       }
     };
     window.addEventListener("terminal-output", handleLogs);
@@ -101,28 +89,6 @@ export default function Workbench() {
 
   const addTerminalLine = (line) => {
     setTerminalLines((prev) => [...prev, line]);
-  };
-
-  const triggerAgentActivity = (agentId, activeStatus = "ACTIVE") => {
-    setAgents((prev) => ({
-      ...prev,
-      [agentId]: {
-        ...prev[agentId],
-        status: activeStatus,
-        color: "bg-cyan-400 animate-ping"
-      }
-    }));
-
-    setTimeout(() => {
-      setAgents((prev) => ({
-        ...prev,
-        [agentId]: {
-          ...prev[agentId],
-          status: "IDLE",
-          color: "bg-emerald-500"
-        }
-      }));
-    }, 2500);
   };
 
   // Handle clicking file in sidebar tree
@@ -150,9 +116,9 @@ export default function Workbench() {
   };
 
   // Terminal commands interpreter
-  const handleTerminalSubmit = (e) => {
-    e.preventDefault();
-    const command = terminalInput.trim();
+  const handleTerminalSubmit = (e, overrideCommand = "") => {
+    if (e) e.preventDefault();
+    const command = overrideCommand ? overrideCommand.trim() : terminalInput.trim();
     if (!command) return;
 
     addTerminalLine(`C:\\Users\\prasanna\\workspace> ${command}`);
@@ -196,18 +162,16 @@ export default function Workbench() {
         break;
 
       case "build":
-        triggerAgentActivity("verify-agent", "VERIFYING");
-        triggerAgentActivity("deploy-agent", "BUILDING");
-        addTerminalLine("[deploy-agent] Initiating compiler compilation...");
+        addTerminalLine("[build-system] Initiating compiler compilation...");
         setTimeout(() => {
-          addTerminalLine("[verify-agent] Checking system dependencies... OK");
+          addTerminalLine("[build-system] Checking system dependencies... OK");
         }, 500);
         setTimeout(() => {
-          addTerminalLine("[verify-agent] Validating database structures and Cosmos indexes... PASS");
+          addTerminalLine("[build-system] Validating database structures and Cosmos indexes... PASS");
         }, 1000);
         setTimeout(() => {
-          addTerminalLine("[deploy-agent] Static build prerender completed successfully.");
-          addTerminalLine("[verify-agent] 0 warnings, 0 compile failures. Verification successful.");
+          addTerminalLine("[build-system] Static build prerender completed successfully.");
+          addTerminalLine("[build-system] 0 warnings, 0 compile failures. Verification successful.");
         }, 1800);
         break;
 
@@ -215,7 +179,7 @@ export default function Workbench() {
         addTerminalLine(`Command not recognized: '${primaryCmd}'. Type 'help' to review syntax list.`);
     }
 
-    setTerminalInput("");
+    if (!overrideCommand) setTerminalInput("");
   };
 
   // Render the current editor panel view
@@ -231,10 +195,9 @@ export default function Workbench() {
         return <AchievementsView />;
       case "contact_endpoint.py":
         return <ContactView />;
-      case "healthcare_validator.cs":
-      case "utility_portal.cs":
-      case "event_scheduler.cs":
-      case "microservices_skeleton.cs":
+      case "ltm_premera_bluecross.cs":
+      case "accenture_conedison.cs":
+      case "cognizant_pearson.cs":
         return <ProjectsView fileId={activeTab} />;
       default:
         return (
@@ -246,22 +209,22 @@ export default function Workbench() {
   };
 
   return (
-    <div className="flex flex-col h-screen w-full select-none text-gray-300 font-sans border border-cyan-500/10 bg-[#070b14] relative overflow-hidden">
+    <div className="flex flex-col h-screen w-full select-none text-gray-300 font-sans border border-emerald-500/10 bg-[#090d16] relative overflow-hidden">
       
       {/* 1. Header Toolbar Dashboard */}
-      <header className="flex items-center justify-between px-4 py-2 bg-[#090f20] border-b border-cyan-500/10 text-xs font-mono relative z-30">
+      <header className="flex items-center justify-between px-4 py-2 bg-[#0b1329] border-b border-emerald-500/10 text-xs font-mono relative z-30">
         <div className="flex items-center gap-3">
           {/* Mobile menu toggle */}
           <button 
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="lg:hidden p-1.5 rounded hover:bg-white/5 text-gray-400 hover:text-cyan-400"
+            className="lg:hidden p-1.5 rounded hover:bg-white/5 text-gray-400 hover:text-emerald-400"
           >
             <Menu size={16} />
           </button>
           
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            <span className="font-bold text-gray-200 uppercase tracking-wider">Antigravity Workspace // Prasanna.tws</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="font-bold text-gray-200 uppercase tracking-wider text-[10px] sm:text-xs">Workspace // Prasanna.tws</span>
           </div>
         </div>
 
@@ -272,26 +235,18 @@ export default function Workbench() {
             <span>Local Node: Up</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500/60"></span>
             <span>Port: 3000</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          {/* Mobile Agent panel toggle */}
+        <div>
           <button 
-            onClick={() => setAgentPanelOpen(!agentPanelOpen)}
-            className="lg:hidden p-1.5 rounded hover:bg-white/5 text-gray-400 hover:text-cyan-400"
-          >
-            <Sparkles size={16} />
-          </button>
-          
-          <button 
-            onClick={() => handleTerminalSubmit({ preventDefault: () => {}, target: { value: "" } })}
-            className="flex items-center gap-1 px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 hover:bg-cyan-500/20 text-cyan-400 rounded transition-all font-mono"
+            onClick={(e) => handleTerminalSubmit(e, "build")}
+            className="flex items-center gap-1 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 text-emerald-400 rounded transition-all font-mono"
             title="Execute Build System"
           >
-            <Play size={10} className="fill-cyan-400" />
+            <Play size={10} className="fill-emerald-400" />
             <span className="text-[10px]">RUN VALIDATIONS</span>
           </button>
         </div>
@@ -302,14 +257,14 @@ export default function Workbench() {
         
         {/* Left Explorer Sidebar */}
         <aside 
-          className={`absolute lg:static top-0 left-0 h-full w-[240px] bg-[#090f20]/95 lg:bg-[#090f20] border-r border-cyan-500/10 flex flex-col z-20 transition-transform duration-300 lg:translate-x-0 ${
+          className={`absolute lg:static top-0 left-0 h-full w-[240px] bg-[#0b1329]/95 lg:bg-[#0b1329] border-r border-emerald-500/10 flex flex-col z-20 transition-transform duration-300 lg:translate-x-0 ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
           {/* Header explorer */}
           <div className="flex items-center justify-between p-3 border-b border-white/5 text-[10px] uppercase font-mono tracking-widest text-gray-400 select-none">
             <span>Explorer Tree</span>
-            <button className="lg:hidden" onClick={() => setSidebarOpen(false)}>
+            <button className="lg:hidden text-gray-500 hover:text-white" onClick={() => setSidebarOpen(false)}>
               <X size={14} />
             </button>
           </div>
@@ -328,7 +283,7 @@ export default function Workbench() {
                       size={12} 
                       className={`text-gray-500 transform transition-transform ${isFolderOpen ? "rotate-90" : ""}`} 
                     />
-                    {isFolderOpen ? <FolderOpen size={13} className="text-cyan-500/80" /> : <Folder size={13} className="text-cyan-500/80" />}
+                    {isFolderOpen ? <FolderOpen size={13} className="text-emerald-500/80" /> : <Folder size={13} className="text-emerald-500/80" />}
                     <span>{folder.name}</span>
                   </button>
 
@@ -341,7 +296,7 @@ export default function Workbench() {
                           onClick={() => handleFileClick(child.id)}
                           className={`flex items-center space-x-2 w-full text-left py-1 px-2 rounded transition-colors ${
                             activeTab === child.id 
-                              ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/20" 
+                              ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" 
                               : "text-gray-400 hover:bg-white/5 hover:text-gray-200"
                           }`}
                         >
@@ -358,9 +313,9 @@ export default function Workbench() {
         </aside>
 
         {/* Workspace Central Panels: Editor, Preview, and Terminal */}
-        <section className="flex-1 flex flex-col min-w-0 bg-[#070b14]">
+        <section className="flex-1 flex flex-col min-w-0 bg-[#090d16]">
           {/* Tabs bar */}
-          <div className="flex bg-[#090f20] border-b border-cyan-500/10 overflow-x-auto select-none relative z-10">
+          <div className="flex bg-[#0b1329] border-b border-emerald-500/10 overflow-x-auto select-none relative z-10">
             {openTabs.map((tabId) => {
               const matchedFile = FILE_TREE.flatMap(f => f.children).find(c => c.id === tabId);
               return (
@@ -369,19 +324,19 @@ export default function Workbench() {
                   onClick={() => setActiveTab(tabId)}
                   className={`flex items-center space-x-2.5 px-4 py-2 border-r border-white/5 text-[11px] font-mono transition-colors relative group ${
                     activeTab === tabId 
-                      ? "bg-slate-900 text-cyan-400" 
-                      : "bg-[#090f20] text-gray-500 hover:text-gray-300"
+                      ? "bg-[#090d16] text-emerald-400" 
+                      : "bg-[#0b1329] text-gray-500 hover:text-gray-300"
                   }`}
                 >
                   <span className="flex-shrink-0">{matchedFile?.icon}</span>
                   <span>{tabId}</span>
                   <X 
                     size={10} 
-                    className="text-gray-600 hover:text-cyan-400 transition-colors"
+                    className="text-gray-600 hover:text-emerald-400 transition-colors"
                     onClick={(e) => handleTabClose(e, tabId)} 
                   />
                   {activeTab === tabId && (
-                    <div className="absolute bottom-0 left-0 w-full h-[1.5px] bg-cyan-400" />
+                    <div className="absolute bottom-0 left-0 w-full h-[1.5px] bg-emerald-400" />
                   )}
                 </button>
               );
@@ -394,16 +349,16 @@ export default function Workbench() {
           </div>
 
           {/* Bottom Terminal console */}
-          <div className="h-[180px] sm:h-[220px] bg-[#060a12] border-t border-cyan-500/10 flex flex-col font-mono text-[11px]">
+          <div className="h-[180px] sm:h-[220px] bg-[#070b14] border-t border-emerald-500/10 flex flex-col font-mono text-[11px]">
             {/* Terminal bar */}
-            <div className="flex items-center justify-between px-3 py-1.5 border-b border-white/5 bg-[#090f20]/50 select-none">
+            <div className="flex items-center justify-between px-3 py-1.5 border-b border-white/5 bg-[#0b1329]/50 select-none">
               <span className="text-[10px] text-gray-500 flex items-center gap-1.5">
-                <Terminal size={12} className="text-cyan-500" />
+                <Terminal size={12} className="text-emerald-500" />
                 <span>TERMINAL / DIAGNOSTICS LOGS</span>
               </span>
               <button 
                 onClick={() => setTerminalLines([])}
-                className="text-[9px] text-gray-600 hover:text-cyan-400 font-semibold"
+                className="text-[9px] text-gray-600 hover:text-emerald-400 font-semibold"
               >
                 CLEAR LOGS
               </button>
@@ -419,59 +374,23 @@ export default function Workbench() {
 
             {/* Terminal console input */}
             <form onSubmit={handleTerminalSubmit} className="flex items-center border-t border-white/5 bg-[#05080f] px-3.5 py-1.5 select-none">
-              <span className="text-cyan-500 font-bold mr-2">&gt;_</span>
+              <span className="text-emerald-500 font-bold mr-2">&gt;_</span>
               <input
                 type="text"
                 value={terminalInput}
                 onChange={(e) => setTerminalInput(e.target.value)}
-                className="flex-1 bg-transparent border-none outline-none text-cyan-400 placeholder-cyan-900/60 font-mono text-[11px] focus:ring-0"
+                className="flex-1 bg-transparent border-none outline-none text-emerald-400 placeholder-emerald-900/60 font-mono text-[11px] focus:ring-0"
                 placeholder="Type 'help' or execute commands..."
               />
             </form>
           </div>
         </section>
-
-        {/* Right Sidebar: Active Agent Monitor status */}
-        <aside 
-          className={`absolute lg:static top-0 right-0 h-full w-[240px] bg-[#090f20]/95 lg:bg-[#090f20] border-l border-cyan-500/10 flex flex-col z-20 transition-transform duration-300 lg:translate-x-0 ${
-            agentPanelOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          {/* Header */}
-          <div className="flex items-center justify-between p-3 border-b border-white/5 text-[10px] uppercase font-mono tracking-widest text-gray-400 select-none">
-            <span>Agentic Activity</span>
-            <button className="lg:hidden" onClick={() => setAgentPanelOpen(false)}>
-              <X size={14} />
-            </button>
-          </div>
-
-          {/* Agents details */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-5 select-none">
-            {Object.entries(agents).map(([id, details]) => (
-              <div 
-                key={id}
-                className="glass-panel p-3 border border-white/5 bg-slate-950/20 hover:border-cyan-500/10 transition-colors"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[11px] font-bold font-mono text-cyan-400 truncate">{id}</span>
-                  <div className="flex items-center gap-1.5 text-[9px] font-mono">
-                    <span className={`w-1.5 h-1.5 rounded-full ${details.color}`} />
-                    <span className="text-gray-400">{details.status}</span>
-                  </div>
-                </div>
-                <p className="text-[10px] text-gray-500 font-mono leading-normal">
-                  {details.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </aside>
       </div>
 
       {/* 3. Bottom IDE status bar */}
-      <footer className="h-6 bg-[#090f20] border-t border-cyan-500/10 flex items-center justify-between px-3 text-[9px] font-mono text-gray-500 select-none relative z-30">
+      <footer className="h-6 bg-[#0b1329] border-t border-emerald-500/10 flex items-center justify-between px-3 text-[9px] font-mono text-gray-500 select-none relative z-30">
         <div className="flex items-center gap-3">
-          <span className="text-cyan-500/70">-- NORMAL --</span>
+          <span className="text-emerald-500/70">-- NORMAL --</span>
           <span>utf-8</span>
           <span>lf</span>
           <span>javascriptreact</span>

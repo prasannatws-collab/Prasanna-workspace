@@ -16,12 +16,12 @@ const EXPERIENCES = [
     ]
   },
   {
-    company: "Accenture (Client: Consolidated Edison)",
+    company: "Accenture - ConEdison",
     role: "Senior Azure PaaS Developer",
     duration: "June 2021 – July 2025",
     location: "Hyderabad, India / Hybrid",
     domain: "Utilities",
-    description: "Built customer account management systems for one of the largest utility providers in the United States. Designed and optimized cloud-native backend services using Azure serverless and NoSQL solutions.",
+    description: "Developing enterprise-scale customer account management solutions for one of the largest utility providers in the US. Working on cloud-native microservices architecture using Azure Functions, APIM, Cosmos DB, and .NET Core to build secure, scalable, and high-performance applications.",
     achievements: [
       "Architected REST APIs and microservices using Azure Functions, APIM, and Cosmos DB.",
       "Successfully automated deployments with Azure DevOps YAML pipelines and IaC (ARM, Bicep)."
@@ -49,16 +49,16 @@ export default function ExperienceView() {
     <span class="code-property">date</span>: <span class="code-string">"Aug 2025 - Present"</span>
     <span class="code-property">loc</span>: <span class="code-string">"Hyderabad, India / Hybrid"</span>
     <span class="code-property">domain</span>: <span class="code-string">"Healthcare"</span>
-  - <span class="code-property">company</span>: <span class="code-string">"Accenture"</span>
+  - <span class="code-property">company</span>: <span class="code-string">"Accenture - ConEdison"</span>
     <span class="code-property">role</span>: <span class="code-string">"Senior Azure PaaS Developer"</span>
     <span class="code-property">date</span>: <span class="code-string">"June 2021 - July 2025"</span>
     <span class="code-property">loc</span>: <span class="code-string">"Hyderabad, India / Hybrid"</span>
-    <span class="code-property">domain</span>: <span class="code-string">"Utilities (Consolidated Edison)"</span>
-  - <span class="code-property">company</span>: <span class="code-string">"Cognizant"</span>
+    <span class="code-property">domain</span>: <span class="code-string">"Utilities"</span>
+  - <span class="code-property">company</span>: <span class="code-string">"Cognizant - Pearson"</span>
     <span class="code-property">role</span>: <span class="code-string">"Azure Developer / Engineer"</span>
     <span class="code-property">date</span>: <span class="code-string">"Nov 2017 - June 2021"</span>
     <span class="code-property">loc</span>: <span class="code-string">"Chennai, India"</span>
-    <span class="code-property">domain</span>: <span class="code-string">"Education (Pearson Connexus)"</span>`;
+    <span class="code-property">domain</span>: <span class="code-string">"Education"</span>`;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full min-h-0 overflow-y-auto p-4 sm:p-6 lg:p-8">

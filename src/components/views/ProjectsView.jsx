@@ -1,13 +1,13 @@
 "use client";
 
-import { ExternalLink, ShieldCheck, Server, Zap, Layers } from "lucide-react";
+import { ExternalLink, ShieldCheck, Server, Zap } from "lucide-react";
 
 const PROJECTS_DATA = {
-  "healthcare_validator.cs": {
-    title: "Healthcare Transaction Processor",
+  "ltm_premera_bluecross.cs": {
+    title: "LTM Premera BlueCross",
     category: "Financials / Healthcare",
-    icon: <ShieldCheck className="text-teal-400" size={20} />,
-    description: "A high-performance transaction platform processing payment validations, subsidies, invoices, and receipts under strict compliance requirements. Leverages serverless architectures to handle spikes safely.",
+    icon: <ShieldCheck className="text-emerald-400" size={20} />,
+    description: "Developing account management and financial transaction workflows for a major US healthcare platform. Focusing on secure payment validation, invoices, receipts, and subsidy processing using Azure services and microservices.",
     tech: ["C#", "Azure Functions", "APIM", "Cosmos DB", "xUnit", "YAML Pipelines"],
     github: "#",
     demo: "#",
@@ -39,11 +39,11 @@ namespace Prasanna.LTM.PaymentService
     }
 }`
   },
-  "utility_portal.cs": {
-    title: "Utility Account Management Portal",
+  "accenture_conedison.cs": {
+    title: "Accenture - ConEdison",
     category: "Utilities / Enterprise Scale",
     icon: <Server className="text-sky-400" size={20} />,
-    description: "Customer portal backend servicing millions of utility users. Re-architected core accounts data layers into microservices, yielding 40% performance gains and decoupled service integrations.",
+    description: "Developing enterprise-scale customer account management solutions for one of the largest utility providers in the US. Working on cloud-native microservices architecture using Azure Functions, APIM, Cosmos DB, and .NET Core to build secure, scalable, and high-performance applications.",
     tech: [".NET Core", "Microservices", "Cosmos DB", "APIM", "Bicep Templates", "Azure DevOps"],
     github: "#",
     demo: "#",
@@ -67,11 +67,11 @@ namespace Prasanna.Accenture.UtilityPortal
     }
 }`
   },
-  "event_scheduler.cs": {
-    title: "E-Learning Event Scheduler",
-    category: "Education / Event Schedulers",
+  "cognizant_pearson.cs": {
+    title: "Cognizant - Pearson",
+    category: "Education / EdTech",
     icon: <Zap className="text-amber-400" size={20} />,
-    description: "Distributed scheduling and grading engine built to support concurrent assessments and course sync schedules. Utilizes queues for high reliability and guaranteed message delivery.",
+    description: "Contributed to Pearson's digital learning and content management platform. Developed robust web APIs and background services, event schedulers, and supported Agile product delivery.",
     tech: ["C#", "ASP.NET Web APIs", "Azure Service Bus", "SQL Server", "Docker", "Git"],
     github: "#",
     demo: "#",
@@ -90,33 +90,11 @@ namespace Prasanna.Cognizant.Scheduler
         }
     }
 }`
-  },
-  "microservices_skeleton.cs": {
-    title: "Event-Driven Microservices Skeleton",
-    category: "Cloud Architecture Template",
-    icon: <Layers className="text-purple-400" size={20} />,
-    description: "An architectural boilerplate featuring centralized API management, event broker routes, standard logging configurations, retry circuits, and infrastructure automated with Bicep.",
-    tech: ["Azure Functions", "Service Bus", "APIM", "Bicep", "Docker", "xUnit"],
-    github: "#",
-    demo: "#",
-    code: `// Infrastructure as Code - Azure APIM Setup
-resource apiManagementService 'Microsoft.ApiManagement/service@2021-08-01' = {
-  name: 'prasanna-enterprise-apim'
-  location: resourceGroup().location
-  sku: {
-    name: 'Developer'
-    capacity: 1
-  }
-  properties: {
-    publisherEmail: 'prasanna.tws@gmail.com'
-    publisherName: 'Prasanna.tws'
-  }
-}`
   }
 };
 
 export default function ProjectsView({ fileId }) {
-  const proj = PROJECTS_DATA[fileId] || PROJECTS_DATA["healthcare_validator.cs"];
+  const proj = PROJECTS_DATA[fileId] || PROJECTS_DATA["ltm_premera_bluecross.cs"];
 
   // Helper for basic syntax styling of C# code
   const getFormattedCode = (code) => {
