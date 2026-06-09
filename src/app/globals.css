@@ -1,32 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0e17;
-  --foreground: #e2e8f0;
-  --card-bg: rgba(18, 25, 41, 0.7);
-  --card-border: rgba(16, 185, 129, 0.12);
+  --background: #081112;
+  --foreground: #f0f5f4;
+  --card-bg: rgba(13, 27, 26, 0.7);
+  --card-border: rgba(10, 124, 110, 0.15);
   
-  --primary-blue: #10b981; /* Soothing mint/emerald */
-  --secondary-cyan: #2dd4bf; /* Soothing sea teal */
-  --accent-purple: #c084fc; /* Soothing soft lavender */
+  --primary-blue: #0A7C6E; /* Calming Pine Teal */
+  --secondary-cyan: #607456; /* Soothing Sage Green */
+  --accent-purple: #FF6B35; /* Sunset Coral */
+  --accent-amber: #F59E0B; /* Warm Amber */
   
   /* IDE/Workbench Theme Colors */
-  --ide-bg: #0a0e17;
-  --ide-panel-bg: #0f172a;
-  --ide-border: rgba(16, 185, 129, 0.15);
-  --ide-text-muted: #64748b;
-  --ide-accent: #10b981;
-  --ide-active-tab: #0a0e17;
+  --ide-bg: #081112;
+  --ide-panel-bg: #0d1e1f;
+  --ide-border: rgba(10, 124, 110, 0.18);
+  --ide-text-muted: #52686b;
+  --ide-accent: #0A7C6E;
+  --ide-active-tab: #081112;
   
   /* Syntax Highlighting */
-  --syn-keyword: #c084fc; /* Lavender */
-  --syn-string: #a7f3d0; /* Soft Mint */
-  --syn-property: #38bdf8; /* Soft Sky */
-  --syn-comment: #64748b; /* Muted Slate */
-  --syn-number: #fbbf24; /* Amber */
-  --syn-tag: #2dd4bf; /* Teal */
-  --syn-function: #34d399; /* Mint green */
-  --syn-class: #2dd4bf; /* Teal */
+  --syn-keyword: #FF6B35; /* Coral */
+  --syn-string: #a5b89c; /* Soft Sage */
+  --syn-property: #F59E0B; /* Amber */
+  --syn-comment: #52686b; /* Muted Slate Teal */
+  --syn-number: #F59E0B; /* Amber */
+  --syn-tag: #0A7C6E; /* Teal */
+  --syn-function: #607456; /* Sage */
+  --syn-class: #FF6B35; /* Coral */
 }
 
 @theme {
@@ -48,14 +49,14 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0e17;
+  background: #081112;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(16, 185, 129, 0.2);
+  background: rgba(10, 124, 110, 0.25);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(192, 132, 252, 0.4);
+  background: rgba(255, 107, 53, 0.4);
 }
 
 body {
@@ -67,7 +68,7 @@ body {
 
 /* Core Design System Utilities */
 .glass-panel {
-  background: rgba(18, 25, 41, 0.75);
+  background: rgba(13, 27, 26, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--ide-border);
@@ -91,17 +92,17 @@ body {
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(16, 185, 129, 0.012) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(16, 185, 129, 0.012) 1px, transparent 1px);
+    linear-gradient(to right, rgba(10, 124, 110, 0.012) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 124, 110, 0.012) 1px, transparent 1px);
 }
 
 .glow-orb-blue {
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(10, 124, 110, 0.1) 0%, transparent 70%);
   filter: blur(40px);
 }
 
 .glow-orb-purple {
-  background: radial-gradient(circle, rgba(192, 132, 252, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.06) 0%, transparent 70%);
   filter: blur(40px);
 }
 
@@ -111,8 +112,8 @@ body {
     to bottom,
     rgba(255, 255, 255, 0),
     rgba(255, 255, 255, 0) 50%,
-    rgba(16, 185, 129, 0.015) 50%,
-    rgba(16, 185, 129, 0.015)
+    rgba(10, 124, 110, 0.015) 50%,
+    rgba(10, 124, 110, 0.015)
   );
   background-size: 100% 4px;
 }

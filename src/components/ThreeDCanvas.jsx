@@ -92,7 +92,7 @@ export default function ThreeDCanvas() {
           ty: sphereTarget.y,
           tz: sphereTarget.z,
           size: Math.random() * 2 + 1,
-          color: i % 2 === 0 ? "rgba(16, 185, 129, " : "rgba(192, 132, 252, "
+          color: i % 3 === 0 ? "rgba(10, 124, 110, " : i % 3 === 1 ? "rgba(255, 107, 53, " : "rgba(245, 158, 11, "
         });
       }
     };
@@ -233,7 +233,7 @@ export default function ThreeDCanvas() {
             const y2 = centerY + sortedParticles[b].ry * scaleB;
 
             const lineOpacity = (1 - dist / 75) * 0.12 * Math.min(scaleA, scaleB);
-            ctx.strokeStyle = `rgba(16, 185, 129, ${lineOpacity})`;
+            ctx.strokeStyle = `rgba(10, 124, 110, ${lineOpacity})`;
             ctx.beginPath();
             ctx.moveTo(x1, y1);
             ctx.lineTo(x2, y2);
