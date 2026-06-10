@@ -217,9 +217,10 @@ export default function Workbench() {
           {/* Mobile menu toggle */}
           <button 
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="lg:hidden p-1.5 rounded hover:bg-white/5 text-gray-400 hover:text-emerald-400"
+            className="lg:hidden p-2 text-emerald-400 hover:bg-emerald-500/10 hover:text-emerald-300 rounded-lg transition-colors focus:outline-none"
+            aria-label="Open navigation menu"
           >
-            <Menu size={16} />
+            <Menu size={24} />
           </button>
           
           <div className="flex items-center gap-2">
