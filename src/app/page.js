@@ -5,7 +5,7 @@ import Workbench from "@/components/Workbench";
 
 export default function Home() {
   return (
-    <div className="relative h-screen w-screen overflow-hidden text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="relative h-[100dvh] w-full overflow-hidden text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
       {/* 3D Floating Particle Background */}
       <ThreeDCanvas />
 

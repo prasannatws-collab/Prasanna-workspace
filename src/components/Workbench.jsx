@@ -209,15 +209,15 @@ export default function Workbench() {
   };
 
   return (
-    <div className="flex flex-col h-screen w-full select-none text-gray-300 font-sans border border-emerald-500/10 bg-[#090d16] relative overflow-hidden">
+    <div className="flex flex-col h-full w-full select-none text-gray-300 font-sans border border-emerald-500/10 bg-[#090d16] relative overflow-hidden">
       
       {/* 1. Header Toolbar Dashboard */}
-      <header className="flex items-center justify-between px-4 py-2 bg-[#0b1329] border-b border-emerald-500/10 text-xs font-mono relative z-30">
+      <header className="flex items-center justify-between px-4 py-2 bg-[#0b1329] border-b border-emerald-500/10 text-xs font-mono relative z-30 shrink-0">
         <div className="flex items-center gap-3">
           {/* Mobile menu toggle */}
           <button 
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="lg:hidden p-2 text-emerald-400 hover:bg-emerald-500/10 hover:text-emerald-300 rounded-lg transition-colors focus:outline-none"
+            className="block lg:hidden p-2 text-emerald-400 hover:bg-emerald-500/10 hover:text-emerald-300 rounded-lg transition-colors focus:outline-none"
             aria-label="Open navigation menu"
           >
             <Menu size={24} />
@@ -389,7 +389,7 @@ export default function Workbench() {
       </div>
 
       {/* 3. Bottom IDE status bar */}
-      <footer className="h-6 bg-[#0b1329] border-t border-emerald-500/10 flex items-center justify-between px-3 text-[9px] font-mono text-gray-500 select-none relative z-30">
+      <footer className="h-6 bg-[#0b1329] border-t border-emerald-500/10 flex items-center justify-between px-3 text-[9px] font-mono text-gray-500 select-none relative z-30 shrink-0">
         <div className="flex items-center gap-3">
           <span className="text-emerald-500/70">-- NORMAL --</span>
           <span>utf-8</span>
