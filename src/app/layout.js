@@ -17,7 +17,7 @@ const caveat = Caveat({
 });
 
 export const metadata = {
-  title: "M Lakshmi Prasanna Kumar Reddy | 3D Interactive Portfolio",
+  title: "M Lakshmi Prasanna Kumar Reddy",
   description: "3D interactive developer portfolio of Prasanna, Specialist - Software Engineering and Azure PaaS Architect. Built with Next.js, Tailwind, and Framer Motion.",
 };
 
