@@ -31,7 +31,7 @@ export default function BioView() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full min-h-0 overflow-y-auto p-4 sm:p-6 lg:p-8">
       {/* Code Editor Window Pane */}
-      <div className="glass-panel border-white/5 bg-slate-950/45 p-4 sm:p-5 flex flex-col font-mono text-xs sm:text-sm h-fit select-text relative">
+      <div className="glass-panel border-white/5 bg-slate-950/45 p-4 sm:p-5 flex flex-col font-mono text-xs sm:text-sm h-fit select-text relative min-w-0">
         <div className="absolute top-2 right-4 text-[9px] text-cyan-400/40 select-none">
           bio.json
         </div>
@@ -79,7 +79,7 @@ export default function BioView() {
             <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-400/5 px-2.5 py-1 rounded border border-emerald-400/10">
               Professional Profile Active
             </span>
-            <h1 className="text-[10px] sm:text-xs md:text-sm lg:text-[10px] xl:text-xs font-bold font-mono text-gray-100 tracking-tight pt-1 whitespace-nowrap">
+            <h1 className="text-[10px] sm:text-xs md:text-sm lg:text-[10px] xl:text-xs font-bold font-mono text-gray-100 tracking-tight pt-1 whitespace-normal sm:whitespace-nowrap">
               M Lakshmi Prasanna Kumar Reddy
             </h1>
             <p className="text-xs font-mono text-gray-400 uppercase tracking-wider">

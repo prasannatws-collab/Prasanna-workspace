@@ -59,7 +59,7 @@ export default function SkillsView() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full min-h-0 overflow-y-auto p-4 sm:p-6 lg:p-8">
       {/* Code Editor Column */}
-      <div className="lg:col-span-5 glass-panel border-white/5 bg-slate-950/45 p-4 sm:p-5 flex flex-col font-mono text-xs h-fit select-text relative">
+      <div className="lg:col-span-5 glass-panel border-white/5 bg-slate-950/45 p-4 sm:p-5 flex flex-col font-mono text-xs h-fit select-text relative min-w-0">
         <div className="absolute top-2 right-4 text-[9px] text-emerald-400/40 select-none">
           skills.yaml
         </div>

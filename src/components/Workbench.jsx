@@ -257,7 +257,7 @@ export default function Workbench() {
         
         {/* Left Explorer Sidebar */}
         <aside 
-          className={`absolute lg:static top-0 left-0 h-full w-[240px] bg-[#0b1329]/95 lg:bg-[#0b1329] border-r border-emerald-500/10 flex flex-col z-20 transition-transform duration-300 lg:translate-x-0 ${
+          className={`fixed lg:static top-0 left-0 h-full w-[240px] bg-[#0b1329]/95 lg:bg-[#0b1329] border-r border-emerald-500/10 flex flex-col z-40 transition-transform duration-300 lg:translate-x-0 ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
